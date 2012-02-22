@@ -7,4 +7,4 @@ Additionally, it includes a subsequent test to determine whether a function is a
 - the target has been detected as a `function` through Angus's previous logic
 - the `prototype` of the function has some keys defined on it.  While this is not a conclusive test (suggestions definitely welcome) I think it covers most of the cases where people are using JS prototypes in their code.
 
-As always, feedback would be greatly appreciated.
+As always, feedback would be greatly appreciated.  For example usage check the tests and have a look at the code.
