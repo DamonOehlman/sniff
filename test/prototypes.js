@@ -25,8 +25,5 @@ describe('prototype tests', function() {
     
     it('should be able to type extends another prototype', function() {
         expect(sniff(CustomPonger)).to.equal('prototype');
-        
-        var test = new CustomPonger;
-        test.ping();
     });
 });
