@@ -1,4 +1,6 @@
 (function (glob) {
+    var rePipeDelim = /\s*\|\s*/;
+    
     // toType function from http://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/
     // follow @angusTweets for more useful stuff like this...
     function toType(obj) {
@@ -54,7 +56,13 @@
             
             // iterate through the types and for a match against the argument
             for (ii = types.length; match && ii--; ) {
-                match = types[ii] === arguments[ii];
+                // split the argument on the pipe character
+                var okTypes = arguments[ii].split(rePipeDelim);
+                
+                match = false;
+                for (var jj = okTypes.length; jj--; ) {
+                    match = match || types[ii] === okTypes[jj];
+                }
             }
             
             return match;

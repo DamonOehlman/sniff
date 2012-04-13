@@ -36,4 +36,35 @@ describe('argument helper tests', function() {
     it('can detect object arguments', function() {
         check([[], {}], ['array', 'object']);
     });
+    
+    it('can detect function arguments', function() {
+        check([{}, function() {}], ['object', 'function']);
+    });
+    
+    it('or syntax - no spaces', function() {
+        check([2], ['number|string']);
+        check(['2'], ['number|string']);
+    });
+    
+    it('or syntax - leading spaces', function() {
+        check([2], ['number |string']);
+        check(['2'], ['number |string']);
+    });
+    
+    it('or syntax - trailing spaces', function() {
+        check([2], ['number| string']);
+        check(['2'], ['number| string']);
+    });
+    
+    it('or syntax - leading and trailing spaces', function() {
+        check([2], ['number | string']);
+        check(['2'], ['number | string']);
+    });
+    
+    it('or syntax - multiple arguments', function() {
+        check([2, 2], ['number|string', 'number|string']);
+        check([2, '2'], ['number|string', 'number|string']);
+        check(['2', 2], ['number|string', 'number|string']);
+        check(['2', '2'], ['number|string', 'number|string']);
+    });
 });
