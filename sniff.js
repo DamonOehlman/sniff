@@ -52,7 +52,7 @@
         }
         
         return function() {
-            var match = true;
+            var match = arguments.length === types.length;
             
             // iterate through the types and for a match against the argument
             for (ii = types.length; match && ii--; ) {

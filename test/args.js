@@ -1,15 +1,20 @@
 var sniff = require('../sniff'),
     expect = require('chai').expect;
     
-function check(args, types) {
+function check(args, types, not) {
 
     function checkArgs() {
-        var matcher = sniff.args(arguments);
+        var matcher = sniff.args(arguments),
+            result = matcher.apply(null, types);
         
-        expect(matcher.apply(null, types)).to.be.ok;
+        (not ? expect(result).to.not : expect(result).to).be.ok;
     }
     
     checkArgs.apply(null, args);
+}
+
+function checknot() {
+    check.apply(null, Array.prototype.slice.call(arguments).concat([true]));
 }
     
 describe('argument helper tests', function() {
@@ -66,5 +71,9 @@ describe('argument helper tests', function() {
         check([2, '2'], ['number|string', 'number|string']);
         check(['2', 2], ['number|string', 'number|string']);
         check(['2', '2'], ['number|string', 'number|string']);
+    });
+    
+    it('should not match different argument lengths', function() {
+        checknot([2, '2'], ['number', 'string', 'function']);
     });
 });
