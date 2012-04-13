@@ -25,6 +25,8 @@
     "url": "http://github.com/DamonOehlman/sniff/issues"
   },
   
+  "scripts": { "test": "mocha --reporter spec" },
+  
   "contributors": [
     "Angus Croll"
   ]

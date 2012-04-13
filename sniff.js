@@ -32,5 +32,34 @@
     
     sniff.toType = toType;
 
+    /**
+    ## sniff.args(arguments)
+
+    Return a function matcher that can be used to determine if a function has a function signature
+    matching a particular type.
+    */
+    sniff.args = function(args) {
+        var types = [], ii;
+        
+        // ensure that args is an array
+        args = Array.prototype.slice.call(args);
+        
+        // iterate through the args and detect the type of each argument
+        for (ii = args.length; ii--; ) {
+            types[ii] = sniff(args[ii]);
+        }
+        
+        return function() {
+            var match = true;
+            
+            // iterate through the types and for a match against the argument
+            for (ii = types.length; match && ii--; ) {
+                match = types[ii] === arguments[ii];
+            }
+            
+            return match;
+        };
+    };
+
     (typeof module != "undefined" && module.exports) ? (module.exports = sniff) : (glob.eve = sniff);
 })(this);
