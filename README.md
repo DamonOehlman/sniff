@@ -17,7 +17,7 @@ In simple cases, while you might do something like the following:
 
 ```js
 function example(name, opts, callback) {
-    // if (typeof opts == 'function') {
+    if (typeof opts == 'function') {
         callback = opts;
         opts = {};
     }
