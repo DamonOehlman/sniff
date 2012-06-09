@@ -69,5 +69,5 @@
         };
     };
 
-    (typeof module != "undefined" && module.exports) ? (module.exports = sniff) : (glob.eve = sniff);
+    (typeof module != "undefined" && module.exports) ? (module.exports = sniff) : (glob.sniff = sniff);
 })(this);
