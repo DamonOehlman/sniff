@@ -1,4 +1,4 @@
-var sniff = require('../sniff'),
+var sniff = require('..'),
     expect = require('chai').expect;
     
 describe('type tests', function() {

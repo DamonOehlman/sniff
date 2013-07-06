@@ -8,14 +8,10 @@
     "reflection"
   ],
   "version": "0.1.3",
-  "main": "sniff.js",
-  "engines": {
-    "node": ">= 0.4.x < 0.9.0"
-  },
   "dependencies": {},
   "devDependencies": {
-    "chai": "0.3.x",
-    "mocha": "*"
+    "chai": "1.7.x",
+    "mocha": "1.12.x"
   },
   "repository": {
     "type": "git",
