@@ -97,12 +97,6 @@
 
   sniff.toType = toType;
 
-  /**
-    ## sniff.args(arguments)
-
-    Return a function matcher that can be used to determine if a function has a function signature
-    matching a particular type.
-  **/
   sniff.args = function(args) {
     var types = [];
     var ii;

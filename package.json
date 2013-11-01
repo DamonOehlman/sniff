@@ -25,5 +25,11 @@
   },
   "contributors": [
     "Angus Croll"
-  ]
+  ],
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "license": "MIT"
 }
